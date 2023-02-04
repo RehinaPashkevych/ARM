@@ -1,5 +1,5 @@
 # ARM
-Codes of Assembly Langauge ARM. I simulated it in the SSPARCSS simulator.
+<h4>Codes of Assembly Langauge ARM. I simulated it in the SSPARCSS simulator. </h4>
 
 The program <b><i>traffic_light.a</i></b> shows implemented traffic light.
 
@@ -58,5 +58,8 @@ i.e., once it reaches state 4, it starts again from state 1. Every state has an 
 and the duration must be measured with the RTC which works in interrupt mode and is connected to IRQ port.
 There are no other traffic lights in the system, e.g., traffic lights for the opposite direction and for pedestrians
 shouldn’t be considered.
+
 Additional note: You can suppose that the RTC counts signals of 1 Hz frequency. Exact duration of the simulation
 can be ignored because it depends on your computer, i.e., the platform on which the simulation is performed.
+
+<hr/>
