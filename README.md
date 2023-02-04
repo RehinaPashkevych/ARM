@@ -14,9 +14,9 @@ FFFF0E00(16). LEDs are connected to the GPIO gate A as follows:
  <tr>
     <th>state</th>
     <th> description</th>
-    <th>Red</th>
-    <th>Yellow</th>
-   <th>Green</th>
+    <th>red</th>
+    <th>yellow</th>
+   <th>green</th>
 </tr>
  
  <tr>
