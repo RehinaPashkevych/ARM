@@ -10,6 +10,51 @@ FFFF0E00(16). LEDs are connected to the GPIO gate A as follows:
 • bit 7 – green
  The traffic light works by standard cycle change whose states given below.
 
+<table>
+ <tr>
+    <th>state</th>
+    <th> description</th>
+    <th>Red</th>
+    <th>Yellow</th>
+   <th>Green</th>
+</tr>
+ 
+ <tr>
+     <th>1</th>
+    <th> Stop</th>
+      <th>1</th>
+     <th>0</th>
+    <th>0</th>
+   </tr>
+ 
+  <tr>
+     <th>2</th>
+     <th>Prepare to start   </th>
+     <th>1</th>
+     <th>1</th>
+    <th>0</th>
+  </tr>
+ 
+ <tr>
+    <th>3</th>
+    <th>Free to go </th>
+    <th>0</th>
+    <th>0</th>
+    <th>1</th>
+ </tr>
+ 
+ <tr>
+    <th>4</th>
+    <th>Prepare to stop </th>
+    <th>0</th>
+    <th>1</th>
+    <th>0</th>
+ </tr>
+</table>
+
+
+
+
 num | description         |    Red |  Yellow |  Green |
 ======================================================|      
 1   | Stop                |    1   |  0      |  0     |
