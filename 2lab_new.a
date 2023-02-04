@@ -1,0 +1,65 @@
+ ORG 0
+ B MAIN
+ ORG 0x18
+
+IRQ STMFD R13!, {R0,R1,LR}
+    LDR R8, RTC
+    STR R10, [R8, #8]
+    MOV R10, #0
+    STR R10, [R8, #0xC]
+LED
+
+   CMP R3,    #0b100000 
+   MOVEQ R3, #0b1100000 
+   BEQ RET
+
+   CMP R3,  #0b1100000 
+   MOVEQ R3, #0b10000000 
+   BEQ RET
+
+   CMP R3, #0b10000000 
+   MOVEQ R3, #0b1000000 
+   BEQ RET
+
+   CMP R3, #0b1000000 
+   MOVEQ R3, #0b100000 
+   BEQ RET
+
+   MOV R3, #0b100000 
+
+RET STR R3, [R0, #0]
+    LDMFD R13!, {R2, LR}
+  ;  SUBS PC, LR, #4
+
+MAIN   MSR CPSR, #0b11010010 ; switching to IRQ mode
+       MOV R13, #0x10000 ; initialization of R13_irq
+       MSR CPSR, #0b11010011 ; switch to SVC mode
+       MOV R13, #0xFC00 ; initialization of R13_svc
+RTC_I  LDR R2, RTC
+     MOV R5, #0
+     STR R5, [R2, #0x0C] ;delete the counter over LR
+     MOV R5, #5
+     STR R5, [R2, #0x04] ;enter the counting constant in the MR
+     MOV R5, #1
+     STR R5, [R2, #0x10] ;allow RTC interruption
+ 
+GPIO_I LDR R0, GPIO
+     MOV R1, #0b11100000 ;gate A dir: XPA5=1 OUTPUT-LED-red-STOP
+     STR R1, [R0, #8] ;PA_DDR
+    ; MOV R1, #0b100000
+     ;STR R1, [R0, #0]
+
+; Enable interruption accepting
+     MOV R4, #0
+     MRS R4, CPSR
+     BIC R4, R4,#0b10000000
+     MSR CPSR, R4
+
+LOOP    B LOOP
+
+
+
+
+
+GPIO DW 0xFFFF0B00
+RTC  DW 0xFFFF0E00
