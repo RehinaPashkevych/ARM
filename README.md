@@ -1,7 +1,7 @@
 # ARM
 Codes of Assembly Langauge ARM. I simulated it in the SSPARCSS simulator.
 
-The program <i>traffic_light.a</i> shows implemented traffic light.
+The program <b><i>traffic_light.a</i></b> shows implemented traffic light.
 
 A GPIO circuit at address FFFF0B00(16) and an RTC at address
 FFFF0E00(16). LEDs are connected to the GPIO gate A as follows:
@@ -52,16 +52,6 @@ FFFF0E00(16). LEDs are connected to the GPIO gate A as follows:
  </tr>
 </table>
 
-
-
-
-num | description         |    Red |  Yellow |  Green |
-======================================================|      
-1   | Stop                |    1   |  0      |  0     |
-2   | Prepare to start    |    1   |  1      |  0     |
-3   | Free to go          |    0   |  0      |  1     |
-4   | Prepare to stop     |    0   |  1      |  0     |
-======================================================|
 
 Initial traffic light state is the Stop state (state 1). After that, traffic light starts cycling through the other states,
 i.e., once it reaches state 4, it starts again from state 1. Every state has an equal duration of exactly 5 seconds,
