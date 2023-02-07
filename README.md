@@ -1,7 +1,9 @@
 # ARM
 <h4>Codes of Assembly Langauge ARM. I simulated it in the SSPARCSS simulator. </h4>
 
-The program  [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=traffic_light.a)](https://git.io/typing-svg) shows implemented traffic light.
+ [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=traffic_light.a)](https://git.io/typing-svg)
+ 
+The program  shows implemented traffic light.
 
 A GPIO circuit at address FFFF0B00(16) and an RTC at address FFFF0E00(16). LEDs are connected to the GPIO gate A as follows:
 <ul>
