@@ -1,0 +1,98 @@
+ addi x1, x0, %lo(DATA) ; loading the address of arabic num
+ lw x5, 0(x1) ;loading data 
+ addi x2, x0, %lo(DST) ;loading destination address
+
+CONVERTER
+   add a0, x5, x0 ;a0==x5
+
+   addi a2, x0, 1
+   beq a0, a2, one
+
+   addi a2, x0, 2 
+   beq a0, a2, two
+
+   addi a2, x0, 3 
+   beq a0, a2, three
+   addi a2, x0, 4
+   beq a0, a2, four
+   addi a2, x0, 5 
+   beq a0, a2, five
+   addi a2, x0, 6 
+   beq a0, a2, six
+   addi a2, x0, 7 
+   beq a0, a2, seven
+   addi a2, x0, 8
+   beq a0, a2, eight
+   addi a2, x0, 9 
+   beq a0, a2, nine
+   addi a2, x0, 10 
+   beq a0, a2, ten
+
+   halt ; halt in the end
+
+one addi a1, a1, 0x49 
+    sb a1, 0(x2);I
+    jal x0, loop
+
+two addi a1, a1, 0x49
+    sb a1, 0(x2); I
+    addi x2, x2, 4 
+    sb a1, 0(x2); I
+    jal x0, loop
+
+three addi a1, a1, 0x49
+    sb a1, 0(x2); I
+    addi x2, x2, 4
+    sb a1, 0(x2); I
+    addi x2, x2, 4
+    sb a1, 0(x2); I
+    jal x0, loop
+
+four addi a1, a1, 0x49 
+    sb a1, 0(x2);I
+    and a1, a1, x0 ;a1==0
+    addi x2, x2, 4
+    addi a1, a1, 0x56
+    sb a1, 0(x2); V
+    jal x0, loop
+
+five  addi a1, a1, 0x56
+    sb a1, 0(x2); V
+    jal x0, loop
+
+six addi a1, a1, 0x56
+    sb a1, 0(x2); V
+    and a1, a1, x0 ;a1==0
+    jal x0, one ;I
+
+seven addi a1, a1, 0x56
+    sb a1, 0(x2); V
+    and a1, a1, x0 ;a1==0
+    jal x0, two ;II
+
+eight addi a1, a1, 0x56
+    sb a1, 0(x2); V
+    and a1, a1, x0 ;a1==0
+    jal x0, three ;III
+
+nine addi a1, a1, 0x49 
+    sb a1, 0(x2);I   
+    and a1, a1, x0 ;a1==0
+   
+ten addi a1, a1, 0x58
+    sb a1, 0(x2);X
+     jal x0, loop
+
+
+loop
+ and a1, a1, x0 ;a1==0
+ and a0, a0, x0 ;a1==0
+ addi x1, x1, 4 ;move the address of arabic num
+ lw x5, 0(x1) ; load new value
+ addi x2, x2, 4 ; move the address of roman num
+ jal x0, CONVERTER
+
+     org 0x500
+DATA DW 1,10, 9, 6, 7, 4, 3, 2
+     org 0x600
+DST  DS 0x100
