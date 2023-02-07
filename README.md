@@ -3,8 +3,8 @@
 <h4>I simulated it in the SSPARCSS simulator. </h4>
 
 
-𝓐𝓡𝓜 𝓹𝓻𝓸𝓬𝓬𝓮𝓼𝓸𝓻
-<mark style="color:blue;text-align:center;"><h4>ARM proccesor</h4></mark>
+<h4>ⒶⓇⓂ 𝓹𝓻𝓸𝓬𝓬𝓮𝓼𝓸𝓻</h4>
+
  
 The program <b><i>traffic_light.a</i></b> shows implemented traffic light.
 
