@@ -58,6 +58,7 @@ Additional note: You can suppose that the RTC counts signals of 1 Hz frequency. 
  
  <hr>
   <b><i>arithmetic.a</i></b>
+  
  A series of data is stored in memory from address 500(16), where each data is a structure of three 32-bit numbers. At the beginning of the structure is a 32-bit number indicating the arithmetic operation according to the following:
   <ul>
 <li> 0 – addition</li>
@@ -68,8 +69,6 @@ Additional note: You can suppose that the RTC counts signals of 1 Hz frequency. 
 Arithmetic operation indicator is followed by two 32-bit numbers written in 2’c format. It is terminated (it ends) with the data 8080 8080(16) at the arithmetic operation indicator. After executing the operation, program writes the 32-bit 2’c result in the memory, starting from address 1000(16). Result block is terminated with the data FFFF FFFF(16)
   
  <hr>
-  
-  
 <h4> FRISC-V processor </h4>
 
 <b><i>frisc-calculator.a</i></b>
