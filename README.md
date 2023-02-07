@@ -61,4 +61,4 @@ shouldn’t be considered.
 Additional note: You can suppose that the RTC counts signals of 1 Hz frequency. Exact duration of the simulation
 can be ignored because it depends on your computer, i.e., the platform on which the simulation is performed.
 
-<hr/>
+
