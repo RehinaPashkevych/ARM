@@ -14,45 +14,41 @@ FFFF0E00(16). LEDs are connected to the GPIO gate A as follows:
 The traffic light works by standard cycle change whose states given below.
 
 <table>
- <tr>
-    <th>state</th>
-    <th> description</th>
-    <th>red</th>
-    <th>yellow</th>
-   <th>green</th>
+<tr>
+<th>state</th>
+<th> description</th>
+<th>red</th>
+<th>yellow</th>
+<th>green</th>
 </tr>
- 
+<tr>
+<th>1</th>
+<th> Stop</th>
+<th>1</th>
+<th>0</th>
+<th>0</th>
+</tr>
+<tr>
+<th>2</th>
+<th>Prepare to start   </th>
+<th>1</th>
+<th>1</th>
+<th>0</th>
+</tr>
+<tr>
+<th>3</th>
+<th>Free to go </th>
+<th>0</th>
+<th>0</th>
+<th>1</th>
+</tr>
  <tr>
-     <th>1</th>
-    <th> Stop</th>
-      <th>1</th>
-     <th>0</th>
-    <th>0</th>
-   </tr>
- 
-  <tr>
-     <th>2</th>
-     <th>Prepare to start   </th>
-     <th>1</th>
-     <th>1</th>
-    <th>0</th>
-  </tr>
- 
- <tr>
-    <th>3</th>
-    <th>Free to go </th>
-    <th>0</th>
-    <th>0</th>
-    <th>1</th>
- </tr>
- 
- <tr>
-    <th>4</th>
-    <th>Prepare to stop </th>
-    <th>0</th>
-    <th>1</th>
-    <th>0</th>
- </tr>
+<th>4</th>
+<th>Prepare to stop </th>
+<th>0</th>
+<th>1</th>
+<th>0</th>
+</tr>
 </table>
 
 
