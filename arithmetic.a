@@ -1,0 +1,109 @@
+        MOV SP, #0x5000
+        MOV R0, #0x500         
+        MOV R1, #RES
+        LDR R2, TERM
+
+MAIN
+        LDR R3, [R0], #4        ; sign
+        LDR R4, [R0], #4        ; 1st op
+        LDR R5, [R0], #4        ; 2nd op
+        CMP R3, R2      ; data is equal to #0x80808080
+        BEQ END
+        CMP R3, #0
+        BEQ ADDING
+        CMP R3, #1
+        BEQ SUBTRACT
+        CMP R3, #2
+        BEQ MULT
+        
+        STMFD SP!, {R4, R5}
+        BL DIVIDE
+        
+        ADD SP, SP, #8
+        LDR R6, [SP]        
+        STR R6, [R1], #4
+        
+        B MAIN
+
+END  
+        MVN R6, #0             
+        STR R6, [R1], #4
+        SWI 0x123456
+
+ADDING  
+        ADD R6, R4, R5         
+        STR R6, [R1], #4
+        B MAIN
+
+SUBTRACT  
+         SUB R6, R4, R5
+        STR R6, [R1], #4
+        B MAIN
+
+MULT  
+        MUL R6, R4, R5
+        STR R6, [R1], #4
+        B MAIN
+
+DIVIDE 
+        STMFD SP!, {R4, R5, R6, R7}
+        LDR R4, [SP, #16]
+        LDR R5, [SP, #20]
+        
+        MOV R7, #0      ; for checking the sign
+        MOV R6, #0      ; result
+        CMP R4, #0      ; checking 1st op
+        BEQ EXIT
+        BPL CHECK
+        MVN R7, R7
+        MVN R4, R4
+        ADD R4, R4, #1
+CHECK                            ; checking 2nd op
+        CMP R5, #0
+        BEQ EXIT
+        BPL LOOP
+        MVN R7, R7
+        MVN R5, R5
+        ADD R5, R5, #1
+LOOP
+        SUB R4, R4, R5
+        CMP R4, #0
+        BMI EXIT
+        ADD R6, R6, #1
+        BEQ EXIT
+        BPL LOOP
+EXIT  
+        CMP R7, #0
+        BEQ POS
+        MVN R6, R6
+        ADD R6, R6, #1
+POS  
+        STR R6, [SP, #24]
+        LDMFD SP!, {R4, R5, R6, R7}
+        MOV PC, LR
+       
+               
+        ORG 0x500 ;block of data where sign, 1st operand, 2d operand
+
+        DW      0x3,    0xFFFFFEFF,     0x10
+        DW      0x1,    0x01F4,         0x00000001
+        DW      0x2,    0xFFFFFFFE,     0xA
+        DW      0x3,    0xFFFFF000,     0xFFFFFFC0
+
+TERM     DW     0x80808080 ;sign=0x80808080 -> terminates
+
+        ORG 0x1000
+RES     DW       0, 0, 0, 0, 0   ;place for the result
+
+
+
+
+
+
+
+
+
+
+
+
+
