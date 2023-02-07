@@ -5,9 +5,11 @@ The program <b><i>traffic_light.a</i></b> shows implemented traffic light.
 
 A GPIO circuit at address FFFF0B00(16) and an RTC at address
 FFFF0E00(16). LEDs are connected to the GPIO gate A as follows:
-• bit 5 – red
-• bit 6 – yellow
-• bit 7 – green
+<ul>
+<li> bit 5 – red</li> 
+<li> bit 6 – yellow</li> 
+<li>  bit 7 – green</li> 
+ <ul>
  The traffic light works by standard cycle change whose states given below.
 
 <table>
