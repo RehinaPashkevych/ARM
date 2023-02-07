@@ -56,9 +56,23 @@ Initial traffic light state is the Stop state (state 1). After that, traffic lig
 
 Additional note: You can suppose that the RTC counts signals of 1 Hz frequency. Exact duration of the simulation can be ignored because it depends on your computer, i.e., the platform on which the simulation is performed.
  
+ <hr>
+  <b><i>arithmetic.a</i></b>
+ A series of data is stored in memory from address 500(16), where each data is a structure of three 32-bit numbers. At the beginning of the structure is a 32-bit number indicating the arithmetic operation according to the following:
+  <ul>
+<li> 0 – addition</li>
+<li> 1 – subtraction</li>
+<li> 2 – multiplication</li>
+<li> 3 – division</li>
+  </ul>
+Arithmetic operation indicator is followed by two 32-bit numbers written in 2’c format. It is terminated (it ends) with the data 8080 8080(16) at the arithmetic operation indicator. After executing the operation, program writes the 32-bit 2’c result in the memory, starting from address 1000(16). Result block is terminated with the data FFFF FFFF(16)
+  
+ <hr>
+  
+  
 <h4> FRISC-V processor </h4>
 
-<b><i>frisc-caculator.a</i></b>
+<b><i>frisc-calculator.a</i></b>
   
 Program  reads an Arabic format number and converts it into a Roman format number. The number which needs to be converted is in the memory at the address 0x500. I ssumed hat the number will be positive and in range from 1 to 10. The Roman format should simply be an ASCII code (or a series of ASCII codes) of the letters needed to represent the number.Once conversion is done, ASCII code(s) should be written in the memory, starting from the address 0x600. The program only converts a single number that is stored at the address 0x500.
  
