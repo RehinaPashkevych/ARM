@@ -1,7 +1,7 @@
 # ARM
 <h4>Codes of Assembly Langauge ARM. I simulated it in the SSPARCSS simulator. </h4>
 
-The program <b><i>traffic_light.a</i></b> shows implemented traffic light.
+ <body>The program <b><i>traffic_light.a</i></b> shows implemented traffic light.
 
 A GPIO circuit at address FFFF0B00(16) and an RTC at address
 FFFF0E00(16). LEDs are connected to the GPIO gate A as follows:
@@ -60,5 +60,5 @@ shouldn’t be considered.
 
 Additional note: You can suppose that the RTC counts signals of 1 Hz frequency. Exact duration of the simulation
 can be ignored because it depends on your computer, i.e., the platform on which the simulation is performed.
-
+ </body>
 
