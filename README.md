@@ -10,7 +10,8 @@ FFFF0E00(16). LEDs are connected to the GPIO gate A as follows:
 <li> bit 6 – yellow</li> 
 <li>  bit 7 – green</li> 
  <ul>
- The traffic light works by standard cycle change whose states given below.
+  
+The traffic light works by standard cycle change whose states given below.
 
 <table>
  <tr>
