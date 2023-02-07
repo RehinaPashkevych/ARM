@@ -3,7 +3,7 @@
 <h4>I simulated it in the SSPARCSS simulator. </h4>
 
 
-<h4>ⒶⓇⓂ 𝓹𝓻𝓸𝓬𝓬𝓮𝓼𝓸𝓻</h4>
+<h4>𝐀𝐑𝐌 𝐩𝐫𝐨𝐜𝐜𝐞𝐬𝐨𝐫</h4>
 
  
 The program <b><i>traffic_light.a</i></b> shows implemented traffic light.
@@ -73,7 +73,7 @@ Additional note: You can suppose that the RTC counts signals of 1 Hz frequency. 
 Arithmetic operation indicator is followed by two 32-bit numbers written in 2’c format. It is terminated (it ends) with the data 8080 8080(16) at the arithmetic operation indicator. After executing the operation, program writes the 32-bit 2’c result in the memory, starting from address 1000(16). Result block is terminated with the data FFFF FFFF(16)
   
  <hr>
-  <mark><h4> FRISC-V processor </h4></mark>
+<h4> 𝗙𝗥𝗜𝗦𝗖-𝗩 𝗽𝗿𝗼𝗰𝗲𝘀𝘀𝗼𝗿 </h4>
 
 
 <b><i>frisc-calculator.a</i></b>
