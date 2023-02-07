@@ -2,7 +2,7 @@
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Codes+of+Assembly+Language.)](https://git.io/typing-svg)
 <h4>I simulated it in the SSPARCSS simulator. </h4>
 
-<mark><h4>ARM proccesor</h4></mark>
+<mark style="color:blue;text-align:center;"><h4>ARM proccesor</h4></mark>
  
 The program <b><i>traffic_light.a</i></b> shows implemented traffic light.
 
@@ -79,26 +79,4 @@ Arithmetic operation indicator is followed by two 32-bit numbers written in 2’
 Program  reads an Arabic format number and converts it into a Roman format number. The number which needs to be converted is in the memory at the address 0x500. I ssumed hat the number will be positive and in range from 1 to 10. The Roman format should simply be an ASCII code (or a series of ASCII codes) of the letters needed to represent the number.Once conversion is done, ASCII code(s) should be written in the memory, starting from the address 0x600. The program only converts a single number that is stored at the address 0x500.
  
 
-  
-  <svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-    <foreignObject width="100%" height="100%">
-        <div xmlns="http://www.w3.org/1999/xhtml">
-            <style>
-            h1 {
-                color: red;
-                animation: mymove 2s infinite;
-            }
-
-            @keyframes mymove {
-                from {
-                    color: red;
-                }
-                to {
-                    color: yellow;
-                }
-            }
-            </style>
-            <h1>HELLO WORLD!</h1>
-        </div>
-    </foreignObject>
-</svg>
+ 
